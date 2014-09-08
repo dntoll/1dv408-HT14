@@ -1,25 +1,29 @@
 <?php
 
 class PortfolioView {
+	private $getLocation = "portfolio";
 
 	public function visitorHasChosenPortfolio() {
-		//var_dump($_GET);
-
-		//die("intentional visitorHasNotChosenPortfolio");
-
-		if (isset($_GET["portfolio"])) //strängberoende
+		if (isset($_GET[$this->getLocation])) 
 			return true;
 
 		return false;
 	}
 
-	public function showPortfolioOwners(array $portfolioOwners) {
+	public function showPortfolioOwners(\model\ParticipantBook $portfolioOwners) {
 		$ret = "<h1>PortfolioView</h1>";
-		foreach ($portfolioOwners as $key => $name) {
-			$ret .= "<a href='?portfolio=$key'>$name</a>"; //strängberoende
+
+		foreach ($portfolioOwners->getParticipants() as $participant) {
+			$ret .= "<a href='?$this->getLocation=" . 
+					$participant->getUnique() ."'>" . 
+					$participant->getName(). "</a>";
 
 		};
 
 		return $ret;
+	}
+
+	public function getChosenOwner() {
+
 	}
 }

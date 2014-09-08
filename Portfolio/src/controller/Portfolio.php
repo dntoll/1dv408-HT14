@@ -3,14 +3,17 @@
 namespace controller;
 
 require_once("./src/view/PortfolioView.php");
+require_once("./src/model/ParticipantBook.php");
 
 
 
 class Portfolio {
 	private $portfolioView;
+	private $participants;
 
 	public function __construct() {
 		$this->portfolioView = new \PortfolioView(); // backslash är "root"-namespace 
+		$this->participants = new \model\ParticipantBook();
 	}
 
 	/**
@@ -19,11 +22,11 @@ class Portfolio {
 	*/
 	public function selectPortfolio() {
 		//fejkad data 
-		$portfolioOwners = array("Examiner" => "Daniel", "Assistant" => "Emil");
+		
 
 		//1. System shows available portfolio owners.
 		if ($this->portfolioView->visitorHasChosenPortfolio() == false)
-			return $this->portfolioView->showPortfolioOwners($portfolioOwners);
+			return $this->portfolioView->showPortfolioOwners($this->participants);
 		else {
 			//2. The visitor selects a portfolio owner.
 			$owner = $this->portfolioView->getChosenOwner();
