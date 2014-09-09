@@ -24,6 +24,6 @@ class PortfolioView {
 	}
 
 	public function getChosenOwner() {
-
+		throw new \Exception("NOT implemented yet!");
 	}
 }

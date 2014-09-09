@@ -25,11 +25,15 @@ class Portfolio {
 		
 
 		//1. System shows available portfolio owners.
-		if ($this->portfolioView->visitorHasChosenPortfolio() == false)
+		if ($this->portfolioView->visitorHasChosenPortfolio() == false) {
+
 			return $this->portfolioView->showPortfolioOwners($this->participants);
-		else {
+
+		} else {
+
 			//2. The visitor selects a portfolio owner.
 			$owner = $this->portfolioView->getChosenOwner();
+			
 			//3. The system shows a portfolio of all projects where the owner is participant.
 			return $this->portfolioView->showPortfolio($owner);
 		}

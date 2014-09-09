@@ -12,14 +12,18 @@ class LikeController {
 		$this->view = new LikeView($this->model);
 	}
 
-	public function doControll() {
+	/**
+	* @return String HTML
+	*/ 
+	public function doLike() {
+		$clientIdentifier = $this->view->getClientIdentifier();
 		//Hantera indata
 		if ($this->view->didUserPressLike()) {
-			$this->model->addLike();
+			$this->model->addLike($clientIdentifier);
 		}
 
 		//Generera utdata
-		return $this->view->showLikes();
+		return $this->view->showLikes($clientIdentifier);
 
 	}
 }
