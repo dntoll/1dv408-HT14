@@ -1,14 +1,11 @@
 <?php
-
-
-
-require_once("../common/HTMLView.php");
-require_once("src/controller/Portfolio.php");
+require_once("src/view/HTMLView.php");
+require_once("src/controller/Navigation.php");
 	
 $view = new HTMLView();
 
-$vpc = new \controller\Portfolio();
+$navigation = new \controller\Navigation();
 
-$htmlBody = $vpc->selectPortfolio();
+$htmlBody = $navigation->doControll();
 
 $view->echoHTML($htmlBody);

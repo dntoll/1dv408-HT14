@@ -3,6 +3,7 @@ PHP-Portfolio
 
 Lecture example code for 1DV408.
 
+Expanded with repository pattern, routing, multiple views, multiple models etc.
 
 Roles:
 ------
