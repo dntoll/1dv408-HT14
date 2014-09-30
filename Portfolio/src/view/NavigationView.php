@@ -73,7 +73,14 @@ class NavigationView {
 	 * Redirect to home URL
 	 */
 	public static function RedirectHome() {
-		header('Location: /repository/');
+		header('Location: /' . \Settings::$ROOT_PATH. '/');
+	}
+
+	/**
+	 * Redirect to home URL
+	 */
+	public static function RedirectToErrorPage() {
+		header('Location: /' . \Settings::$ROOT_PATH. '/error.html');
 	}
 	
 	/**
@@ -84,6 +91,6 @@ class NavigationView {
 	 * @param String $uniqueString unique key for the user.
 	 */
 	public static function RedirectToUser($uniqueString) {
-		header('Location: /Repository/?'.self::$action.'='.self::$actionShowUser.'&portfolio='.$uniqueString);
+		header('Location: /' . \Settings::$ROOT_PATH. '/?'.self::$action.'='.self::$actionShowUser.'&portfolio='.$uniqueString);
 	}
 }
