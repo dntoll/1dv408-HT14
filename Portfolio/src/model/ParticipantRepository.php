@@ -46,7 +46,7 @@ class ParticipantRepository extends base\Repository {
 
 		if ($result) {
 			$user = new \model\Participant($result[self::$name], $result[self::$key]);
-			$sql = "SELECT * FROM ".self::$projectTable. " WHERE participantUnique = ?";
+			$sql = "SELECT * FROM ".self::$projectTable. " WHERE ".ProjectRepository::$owner." = ?";
 			$query = $db->prepare($sql);
 			$query->execute (array($result[self::$key]));
 			$projects = $query->fetchAll();
@@ -89,7 +89,7 @@ class ParticipantRepository extends base\Repository {
 		$query -> execute($params);
 	}
 
-	public function query($sql, $params = NULL) {
+	/*public function query($sql, $params = NULL) {
 		$db = $this -> connection();
 
 		$query = $db -> prepare($sql);
@@ -110,7 +110,7 @@ class ParticipantRepository extends base\Repository {
 
 		return NULL;
 
-	}
+	}*/
 
 	public function toList() {
 		try {

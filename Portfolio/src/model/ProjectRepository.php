@@ -9,7 +9,7 @@ class ProjectRepository extends base\Repository {
 	
 	private static $name = 'projectName';
 	private static $key = 'uniqueKey';
-	private static $owner = 'participantUnique';
+	public static $owner = 'ownerParticipantFK';
 	
 	public function __construct() {
 		$this -> dbTable = 'projects';

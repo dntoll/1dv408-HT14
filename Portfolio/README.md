@@ -23,19 +23,21 @@ http://yuml.me/edit/9d8f3a84
 Use-cases:
 ======================================
 
-A Visitor Views a Portfolio of Projects
+UC1. A Visitor Views a Portfolio of Projects
 ---------------------------------------
 A visitor wishes to view a portfolio related to a Portfolio Owner.
 1. System shows available portfolio owners.
 2. The visitor selects a portfolio owner.
 3. The system shows a portfolio of all projects where the owner is participant.
 
+UC2. A Visitor Creates a new Portfolio
+--------------------------------------
 
-Portfolio Owner creates a new Project
+UC3. Portfolio Owner creates a new Project
+------------------------------------------
+
+Participant edits an existing Project
 -------------------------------------
-
-Participant Owner edits an existing Project
--------------------------------------------
 
 Participant edits an existing Project
 -------------------------------------
